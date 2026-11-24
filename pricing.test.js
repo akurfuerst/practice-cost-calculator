@@ -144,9 +144,9 @@ test('alternatives, solo: only vendors with documented prices, each with source 
   assert.equal(byId.liscio.low, 588);
   assert.equal(byId.liscio.high, 828);
   assert.equal(byId.karbon.low, 708);
-  assert.equal(byId.karbon.high, 1188);
-  assert.equal(byId.smartvault.low, 780);
-  assert.equal(byId.smartvault.high, 840);
+  assert.equal(byId.karbon.high, 1068);
+  assert.equal(byId.smartvault.low, 1560); // 2-user minimum
+  assert.equal(byId.smartvault.high, 2040);
   assert.equal(byId.canopy.low, 888);
   assert.equal(byId.truss.low, 3000);
   assert.equal(byId.soraban, undefined);
@@ -160,7 +160,7 @@ test('alternatives, solo: only vendors with documented prices, each with source 
 test('alternatives, 3 seats: per-seat vendors scale, Financial Cents switches to team basis', () => {
   const byId = Object.fromEntries(compareAlternatives(3).map((a) => [a.id, a]));
   assert.equal(byId.canopy.low, 2664);
-  assert.equal(byId.financial_cents.low, 1800);
+  assert.equal(byId.financial_cents.low, 1764);
   assert.equal(byId.myfirm360.low, 588);
   assert.equal(byId.myfirm360.high, 1764);
   assert.equal(byId.karbon.low, 2124);
