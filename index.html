@@ -130,7 +130,7 @@ noscript{display:block;margin:1rem 0}
 
 <footer>
   <p>Not affiliated with TaxDome or any vendor listed. Not tax, legal or financial advice.</p>
-  <p>This page sets no cookies, loads nothing from other sites, and sends nothing anywhere.</p>
+  <p>This page sets no cookies. The numbers you enter stay in your browser and are never sent anywhere. Visits are counted anonymously with <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a> (no cookies, no personal data).</p>
 </footer>
 </div>
 
@@ -254,9 +254,15 @@ function buildStatic() {
 }
 
 buildStatic();
+// Anonymous usage counts (GoatCounter). Only event names are sent, never the numbers entered.
+const track = (name) => { try { window.goatcounter?.count?.({ path: name, title: name, event: true }); } catch {} };
+let usedOnce = false;
+$('f').addEventListener('input', () => { if (!usedOnce) { usedOnce = true; track('calculator-used'); } });
+$('kit').addEventListener('click', (e) => { if (e.target.closest('a.btn')) track('kit-buy-click'); });
 $('f').addEventListener('input', render);
 $('f').addEventListener('submit', (e) => e.preventDefault());
 render();
 </script>
+<script data-goatcounter="https://vibe.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # TaxDome renewal price estimator
 
-Static page: `index.html` (CSS and JS inline), `pricing.js` (pure logic), `config.js` (Switching Kit placeholder). No build step, no dependencies, no external requests.
+Static page: `index.html` (CSS and JS inline), `pricing.js` (pure logic), `config.js` (Switching Kit placeholder). No build step, no dependencies. The only external request is the cookieless GoatCounter visit counter (`data-goatcounter` in `index.html`).
 
 ## Run locally
 ```
